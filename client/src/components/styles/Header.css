@@ -1,0 +1,17 @@
+header {
+    position: sticky;
+    top: 0;
+    background: #212529;
+    box-shadow: 0 -6px 10px 5px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 8vh;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: 'Poppins', sans-serif;
+}

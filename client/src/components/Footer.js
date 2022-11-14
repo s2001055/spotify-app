@@ -1,0 +1,15 @@
+import './styles/Footer.css';
+
+const Footer = () => {
+    return (
+        <>
+            <footer>
+                <div className="footer-content">
+                    <p>Copyright &copy;2022 Spotify Clone.</p>
+                </div>
+            </footer>
+        </>
+    );
+}
+
+export default Footer;
