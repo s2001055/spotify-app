@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Container, FormControl, Card, Row, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import SpotifyWebApi from 'spotify-web-api-node';
 import '../styles/Artists.css';
 
@@ -8,6 +9,7 @@ const spotifyApi = new SpotifyWebApi({ clientId: '4e77cab454d1475281fbd1817dd056
 const Artists = ({ accessToken }) => {
     const [artists, setArtists] = useState([]);
     const [search, setSearch] = useState('');
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (!accessToken) return;
@@ -38,37 +40,40 @@ const Artists = ({ accessToken }) => {
         return () => cancel = true;
     }, [search, accessToken]);
 
+    if (!accessToken) return navigate('/');
+
     return (
         <>
-            <Container className="p-4 mt-5 mb-5 border rounded">
-                <Container className="mb-4 text-center border-bottom">
-                    <h5>Artistit</h5>
-                </Container>
+            <Container className="mt-5 mb-5">
+                <Card>
+                    <Card.Header>Artistit</Card.Header>
+                    <Card.Body>
+                        <Container className="col-sm-5 mb-5">
+                            <FormControl
+                                type="text"
+                                placeholder="Hae artisteja..."
+                                onChange={(e) => setSearch(e.target.value)}
+                            />
+                        </Container>
 
-                <Container className="col-sm-5 mb-5">
-                    <FormControl
-                        type="text"
-                        placeholder="Hae artisteja..."
-                        onChange={(e) => setSearch(e.target.value)}
-                    />
-                </Container>
+                        <Row className="row-col-4 g-3">
+                            {artists.map(artist => (
+                                <div className="col-md-3" key={artist.uri}>
+                                    <Card>
+                                        <Card.Img src={artist.image} className='p-3' style={{ borderRadius: '20px', height: '320px' }} />
 
-                <Row className="row-col-4 g-3">
-                    {artists.map(artist => (
-                        <div className="col-md-3" key={artist.uri}>
-                            <Card>
-                                <Card.Img src={artist.image} className='p-3' style={{ borderRadius: '20px' }} />
-
-                                <Card.Body>
-                                    <Card.Title>{artist.name}</Card.Title>
-                                    <Card.Subtitle className="card-subtitle mb-2 text-muted">Seuraajat: {artist.followers.toLocaleString()}</Card.Subtitle>
-                                    <Card.Text></Card.Text>
-                                    <Button href={artist.link} target="_blank" className="btn-sm" variant="success">Spotify linkki</Button>
-                                </Card.Body>
-                            </Card>
-                        </div>
-                    ))}
-                </Row>
+                                        <Card.Body>
+                                            <Card.Title>{artist.name}</Card.Title>
+                                            <Card.Subtitle className="card-subtitle mb-2 text-muted">Seuraajat: {artist.followers.toLocaleString()}</Card.Subtitle>
+                                            <Card.Text></Card.Text>
+                                            <Button href={artist.link} target="_blank" className="btn-sm" variant="success">Spotify linkki</Button>
+                                        </Card.Body>
+                                    </Card>
+                                </div>
+                            ))}
+                        </Row>
+                    </Card.Body>
+                </Card>
             </Container>
         </>
     );

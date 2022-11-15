@@ -61,7 +61,7 @@ const App = () => {
             <Header accessToken={accessToken} />
 
             <Routes>
-                <Route path="/home" element={<Dashboard />} />
+                <Route path="/home" element={<Dashboard accessToken={accessToken} />} />
                 <Route path="/artists" element={<Artists accessToken={accessToken} />} />
                 <Route path="/albums" element={<Albums accessToken={accessToken} />} />
                 <Route path="/playlists" element={<Playlists accessToken={accessToken} />} />

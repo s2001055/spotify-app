@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Container, FormControl, Card, Row, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
 import SpotifyWebApi from 'spotify-web-api-node';
@@ -12,6 +13,7 @@ const Albums = ({ accessToken }) => {
     const [albums, setAlbums] = useState([]);
     const [search, setSearch] = useState('');
     const [playingAlbum, setPlayingAlbum] = useState();
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (!accessToken) return;
@@ -42,6 +44,8 @@ const Albums = ({ accessToken }) => {
         return () => cancel = true;
     }, [search, accessToken]);
 
+    if (!accessToken) return navigate('/');
+
     const handleToggleMusic = (albumUri) => {
         setAlbums(albums.map(album => {
             if (album.isPlaying) {
@@ -70,60 +74,61 @@ const Albums = ({ accessToken }) => {
 
     return (
         <>
-            <Container className='p-4 mt-5 mb-5 border rounded'>
-                <Container className='mb-4 text-center border-bottom'>
-                    <h5>Albumit</h5>
-                </Container>
+            <Container className="mt-5 mb-5">
+                <Card>
+                    <Card.Header>Albumit</Card.Header>
+                    <Card.Body>
+                        <Container className='col-sm-5 mb-5'>
+                            <FormControl
+                                placeholder='Hae albumeita...'
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
+                            />
+                        </Container>
 
-                <Container className='col-sm-5 mb-5'>
-                    <FormControl
-                        placeholder='Hae albumeita...'
-                        value={search}
-                        onChange={(e) => setSearch(e.target.value)}
-                    />
-                </Container>
+                        <Container className="mb-4">
+                            <Player accessToken={accessToken} trackUri={playingAlbum?.uri} />
+                        </Container>
 
-                <Container className="mb-4">
-                    <Player accessToken={accessToken} trackUri={playingAlbum?.uri} />
-                </Container>
+                        <Row className='row-col-4 g-3'>
+                            {albums.map((album) => (
+                                <div className='col-md-3' key={album.uri}>
+                                    <Card>
+                                        <Card.Img src={album.image} className='p-3' style={{ borderRadius: '20px', height: '320px' }} />
+                                        
+                                        <Card.Body>
+                                            <Card.Title>{album.album}</Card.Title>
+                                            <Card.Subtitle className="card-subtitle mb-2 text-muted">{album.artist}</Card.Subtitle>
+                                            <Card.Text></Card.Text>
 
-                <Row className='row-col-4 g-3'>
-                    {albums.map((album) => (
-                        <div className='col-md-3' key={album.uri}>
-                            <Card>
-                                <Card.Img src={album.image} className='p-3' style={{ borderRadius: '20px' }} />
-                                
-                                <Card.Body>
-                                    <Card.Title>{album.album}</Card.Title>
-                                    <Card.Subtitle className="card-subtitle mb-2 text-muted">{album.artist}</Card.Subtitle>
-                                    <Card.Text></Card.Text>
+                                            {album.isPlaying ?
+                                                <Button
+                                                    onClick={() => handleToggleMusic(album.uri)}
+                                                    className='btn-sm card-link'
+                                                    variant='danger'
+                                                >
+                                                    <FontAwesomeIcon icon={faPause} />
+                                                    <span>Lopeta kuuntelu</span>
+                                                </Button>
+                                                :
+                                                <Button
+                                                    onClick={() => handleToggleMusic(album.uri)}
+                                                    className='btn-sm card-link'
+                                                    variant='success'
+                                                >
+                                                    <FontAwesomeIcon icon={faPlay} />
+                                                    <span>Soita kappale</span>
+                                                </Button>
+                                            }
 
-                                    {album.isPlaying ?
-                                        <Button
-                                            onClick={() => handleToggleMusic(album.uri)}
-                                            className='btn-sm card-link'
-                                            variant='danger'
-                                        >
-                                            <FontAwesomeIcon icon={faPause} />
-                                            <span>Lopeta kuuntelu</span>
-                                        </Button>
-                                        :
-                                        <Button
-                                            onClick={() => handleToggleMusic(album.uri)}
-                                            className='btn-sm card-link'
-                                            variant='success'
-                                        >
-                                            <FontAwesomeIcon icon={faPlay} />
-                                            <span>Soita kappale</span>
-                                        </Button>
-                                    }
-
-                                    <Button href={album.link} target="_blank" className="btn-sm card-link" variant="outline-secondary">Spotify linkki</Button>
-                                </Card.Body>
-                            </Card>
-                        </div>
-                    ))}
-                </Row>
+                                            <Button href={album.link} target="_blank" className="btn-sm card-link" variant="outline-secondary">Spotify linkki</Button>
+                                        </Card.Body>
+                                    </Card>
+                                </div>
+                            ))}
+                        </Row>
+                    </Card.Body>
+                </Card>
             </Container>
         </>
     );
