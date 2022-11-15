@@ -29,7 +29,7 @@ const App = () => {
                 setRefreshToken(refreshToken);
                 setExpiresIn(expiresIn);
 
-                navigate('/dashboard');
+                navigate('/home');
             } catch(err) {
                 console.error(err);
             }
@@ -61,14 +61,11 @@ const App = () => {
             <Header accessToken={accessToken} />
 
             <Routes>
-                <Route path="/" element={<Dashboard />} />
+                <Route path="/home" element={<Dashboard />} />
                 <Route path="/artists" element={<Artists accessToken={accessToken} />} />
                 <Route path="/albums" element={<Albums accessToken={accessToken} />} />
                 <Route path="/playlists" element={<Playlists accessToken={accessToken} />} />
-                <Route path="/dashboard" element={<Dashboard />} />
             </Routes>
-
-            {/* <Footer /> */}
         </>
     );
 }

@@ -27,7 +27,7 @@ const Artists = ({ accessToken }) => {
                 return {
                     name: artist.name,
                     uri: artist.uri,
-                    image: artist.images[1].url,
+                    image: artist.images[1]?.url,
                     followers: artist.followers.total,
                     popularity: artist.popularity,
                     link: artist.external_urls.spotify
@@ -45,7 +45,7 @@ const Artists = ({ accessToken }) => {
                     <h5>Artistit</h5>
                 </Container>
 
-                <Container className="col-5 mb-4">
+                <Container className="col-sm-5 mb-5">
                     <FormControl
                         type="text"
                         placeholder="Hae artisteja..."
@@ -55,7 +55,7 @@ const Artists = ({ accessToken }) => {
 
                 <Row className="row-col-4 g-3">
                     {artists.map(artist => (
-                        <div className="col-md-3">
+                        <div className="col-md-3" key={artist.uri}>
                             <Card>
                                 <Card.Img src={artist.image} className='p-3' style={{ borderRadius: '20px' }} />
 
@@ -63,7 +63,7 @@ const Artists = ({ accessToken }) => {
                                     <Card.Title>{artist.name}</Card.Title>
                                     <Card.Subtitle className="card-subtitle mb-2 text-muted">Seuraajat: {artist.followers.toLocaleString()}</Card.Subtitle>
                                     <Card.Text></Card.Text>
-                                    <Button href={artist.link} target="_blank" className="btn-sm" variant="outline-success">Spotify linkki</Button>
+                                    <Button href={artist.link} target="_blank" className="btn-sm" variant="success">Spotify linkki</Button>
                                 </Card.Body>
                             </Card>
                         </div>

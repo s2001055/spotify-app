@@ -2,24 +2,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 body {
-    background: whitesmoke;
-    font-family: 'Poppins', sans-serif;
+	background: whitesmoke;
+	font-family: 'Poppins', sans-serif;
 }
 
 ::-webkit-scrollbar {
-    width: 15px;
+	width: 15px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #212529;
+	background: #212529;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgb(200, 200, 200);
-    border-radius: 10px;
-    border: 4px solid #212529;
+	background: rgb(200, 200, 200);
+	border-radius: 10px;
+	border: 4px solid #212529;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgb(180, 180, 180);
+	background: rgb(180, 180, 180);
 }

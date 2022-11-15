@@ -22,6 +22,8 @@ const Playlists = ({accessToken}) => {
 
         spotifyApi.searchPlaylists(search).then((result) => {
             if (cancel) return;
+
+            console.log(result);
             
             setPlaylists(result.body.playlists.items.map((playlist) => {
                 return {
@@ -44,7 +46,7 @@ const Playlists = ({accessToken}) => {
                     <h5>Soittolistat</h5>
                 </Container>
 
-                <Container className="col-5 mb-4">
+                <Container className="col-sm-5 mb-5">
                     <FormControl
                         type="text"
                         placeholder="Hae soittolistoja..."
@@ -54,12 +56,13 @@ const Playlists = ({accessToken}) => {
 
                 <Row className="row-col-4 g-3">
                     {playlist.map(playlist => (
-                        <div className="col-md-3">
+                        <div className="col-md-3" key={playlist.uri}>
                             <Card>
-                                <Card.Img className="p-3" style={{ borderRadius: '20px', height: '300px', width: '300px' }}  src={playlist.image} />
+                                <Card.Img src={playlist.image} className="p-3" style={{ borderRadius: '20px', height: '100%', width: '100%' }} />
                                 <Card.Body>
                                     <Card.Title>{playlist.name}</Card.Title>
                                     <Card.Text>{playlist.owner}</Card.Text>
+                                    <Button href={playlist.link} target="_blank" className="btn-sm" variant="success">Spotify linkki</Button>
                                 </Card.Body>
                             </Card>
                         </div>

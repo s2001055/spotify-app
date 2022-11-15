@@ -5,21 +5,34 @@
 .nav .logo {
     margin-right: 30px;
     font-size: 20px;
+    text-decoration: none;
+    color: #fff;
+    transition: 0.2s;
 }
 
-.nav a {
+.nav .logo:hover {
+    color: rgb(30, 201, 90);
+}
+
+.nav .nav-link {
     text-decoration: none;
     color: white;
     padding: 10px;
     margin: 5px;
     font-weight: 500;
-    transition: 0.3s;
+    transition: 0.2s;
     border-radius: 5px;
     font-size: 14px;
     font-family: 'Poppins', sans-serif;
 }
 
-.nav a:hover {
+.nav .nav-link:hover {
     color: rgb(30, 201, 90);
     background: rgba(255, 255, 255, 0.1);
+}
+
+@media screen and (max-width: 600px) {
+	.nav .nav-link {
+		display: none;
+	}
 }

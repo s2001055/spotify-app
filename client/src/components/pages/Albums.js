@@ -75,7 +75,7 @@ const Albums = ({ accessToken }) => {
                     <h5>Albumit</h5>
                 </Container>
 
-                <Container className='col-5 mb-4'>
+                <Container className='col-sm-5 mb-5'>
                     <FormControl
                         placeholder='Hae albumeita...'
                         value={search}
