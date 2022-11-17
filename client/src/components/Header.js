@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import Login from './Login';
 import Navbar from './Navbar';
 import './styles/Header.css';
