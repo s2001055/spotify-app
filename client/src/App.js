@@ -54,7 +54,7 @@ const App = () => {
         }, (expiresIn - 60) * 1000);
 
         return () => clearInterval(interval);
-    }, [refreshToken, expiresIn])
+    }, [refreshToken, expiresIn]);
 
     return (
         <>

@@ -8,7 +8,8 @@ const Header = ({ accessToken }) => {
         <>
 			<header>
 				<nav>
-					{accessToken ? <Navbar /> : <Login />}
+					{accessToken && <Navbar />}
+					<Login accessToken={accessToken} />
 				</nav>
 			</header>
         </>
