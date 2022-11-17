@@ -62,7 +62,8 @@ const Playlists = ({ accessToken }) => {
                                         <Card.Img src={playlist.image} className="p-3" style={{ borderRadius: '20px', height: '100%', width: '100%' }} />
                                         <Card.Body>
                                             <Card.Title>{playlist.name}</Card.Title>
-                                            <Card.Text>{playlist.owner}</Card.Text>
+                                            <Card.Subtitle className="text-muted">{playlist.owner}</Card.Subtitle>
+                                            <Card.Text></Card.Text>
                                             <Button href={playlist.link} target="_blank" className="btn-sm" variant="success">Spotify linkki</Button>
                                         </Card.Body>
                                     </Card>

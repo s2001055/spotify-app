@@ -17,15 +17,6 @@ const Player = ({ accessToken, trackUri }) => {
                 }}
                 play={play}
                 uris={trackUri ? [trackUri] : []}
-                styles={{
-                    activeColor: 'limegreen',
-                    bgColor: '#212529',
-                    color: '#fff',
-                    loaderColor: '#fff',
-                    sliderColor: '#0096FF',
-                    trackArtistColor: '#ccc',
-                    trackNameColor: '#fff',
-                }}
             />
         </div>
     );
