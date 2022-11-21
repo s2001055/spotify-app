@@ -22,7 +22,7 @@ const Artists = ({ accessToken }) => {
 
         let cancel = false;
 
-        spotifyApi.searchArtists(search).then((result) => {
+        spotifyApi.searchArtists(search, { limit: 48 }).then((result) => {
             if (cancel) return;
 
             setArtists(result.body.artists.items.map((artist) => {

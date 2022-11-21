@@ -22,7 +22,7 @@ const Playlists = ({ accessToken }) => {
 
         let cancel = false;
 
-        spotifyApi.searchPlaylists(search).then((result) => {
+        spotifyApi.searchPlaylists(search, { limit: 48 }).then((result) => {
             if (cancel) return;
 
             setPlaylists(result.body.playlists.items.map((playlist) => {

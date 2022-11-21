@@ -25,8 +25,9 @@ const Albums = ({ accessToken }) => {
         if (!accessToken) return;
 
         let cancel = false;
-        
-        spotifyApi.searchAlbums(`album:${search}`).then((result) => {
+
+        spotifyApi.searchAlbums(search, { limit: 48 }).then((result) => {
+            console.log(result)
             if (cancel) return;
 
             setAlbums(result.body.albums.items.map((track) => {
