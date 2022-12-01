@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Login from './Login';
 import Navbar from './Navbar';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
