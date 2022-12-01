@@ -15,3 +15,91 @@ nav {
     margin-right: 20px;
     font-family: 'Poppins', sans-serif;
 }
+
+.logo {
+    font-size: 20px;
+    text-decoration: none;
+    color: #fff;
+    transition: 0.2s;
+}
+
+.logo:hover {
+    color: rgb(30, 201, 90);
+}
+
+.menu-active {
+    display: none;
+}
+
+.sidebar-close {
+    margin-left: 5px;
+    height: 80px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.sidebar {
+    background: #212529;
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    transition: 1s;
+}
+
+.sidebar-items {
+    display: column;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.sidebar.active {
+    right: 0;
+    transition: 0.3s;
+}
+
+.sidebar-icons {
+    cursor: pointer;
+    font-size: 1.5rem;
+    background: none;
+}
+
+.sidebar-links {
+    list-style: none;
+}
+
+.sidebar-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.sidebar-links a:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.login-button {
+    margin-top: 15px;
+    width: 100%;
+}
+
+@media screen and (max-width: 700px) {
+    .login {
+        display: none;
+    }
+
+    .menu-active {
+        display: block;
+    }
+}

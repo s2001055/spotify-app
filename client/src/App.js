@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Header from './components/Header';
-import Footer from './components/Footer';
 import Artists from './components/pages/Artists';
 import Albums from './components/pages/Albums';
 import Playlists from './components/pages/Playlists';
@@ -29,7 +28,7 @@ const App = () => {
                 setRefreshToken(refreshToken);
                 setExpiresIn(expiresIn);
 
-                navigate('/home');
+                navigate('/');
             } catch(err) {
                 console.error(err);
             }
@@ -61,10 +60,10 @@ const App = () => {
             <Header accessToken={accessToken} />
 
             <Routes>
-                <Route path="/home" element={<Dashboard accessToken={accessToken} />} />
-                <Route path="/artists" element={<Artists accessToken={accessToken} />} />
-                <Route path="/albums" element={<Albums accessToken={accessToken} />} />
-                <Route path="/playlists" element={<Playlists accessToken={accessToken} />} />
+                <Route path='/' element={<Dashboard accessToken={accessToken} />} />
+                <Route path='/artists' element={<Artists accessToken={accessToken} />} />
+                <Route path='/albums' element={<Albums accessToken={accessToken} />} />
+                <Route path='/playlists' element={<Playlists accessToken={accessToken} />} />
             </Routes>
         </>
     );
