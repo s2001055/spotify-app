@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { Container, FormControl, Card, Row, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -75,6 +76,10 @@ const Albums = ({ accessToken }) => {
 
     return (
         <>
+            <Helmet>
+                <title>Spotify API - Albumit</title>
+            </Helmet>
+
             <Container className="mt-5 mb-5">
                 <Card>
                     <Card.Header>Albumit</Card.Header>

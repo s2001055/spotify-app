@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { Container, FormControl, Card, Row, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import SpotifyWebApi from 'spotify-web-api-node';
@@ -44,6 +45,10 @@ const Artists = ({ accessToken }) => {
 
     return (
         <>
+            <Helmet>
+                <title>Spotify API - Artistit</title>
+            </Helmet>
+
             <Container className="mt-5 mb-5">
                 <Card>
                     <Card.Header>Artistit</Card.Header>
