@@ -22,14 +22,14 @@ const Header = ({ accessToken }) => {
 						{accessToken && <Navbar />}
 
 						<div className='menu-active'>
-							<FaIcons.FaBars className='sidebar-icons' onClick={showSidebar} /> 
+							<AiIcons.AiOutlineMenu className='sidebar-icons' onClick={showSidebar} />
 						</div>
 
 						<div className={sidebar ? 'sidebar active' : 'sidebar'}>
 							<div className='sidebar-items'>
-								<li className='sidebar-close'>
+								<div className='sidebar-close'>
 									<AiIcons.AiOutlineClose className='sidebar-icons' onClick={showSidebar} />
-								</li>
+								</div>
 
 								{accessToken && (
 									<li className='sidebar-links' onClick={showSidebar}>
