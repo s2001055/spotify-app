@@ -7,7 +7,7 @@ const Player = ({ accessToken, trackUri }) => {
     useEffect(() => trackUri ? setPlay(true) : setPlay(false), [trackUri]);
 
     return (
-        <div className="player-container">
+        <div className='player-container'>
             <SpotifyPlayer
                 token={accessToken}
                 showSaveIcon
