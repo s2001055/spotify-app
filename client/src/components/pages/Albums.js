@@ -84,7 +84,7 @@ const Albums = ({ accessToken }) => {
                 <Card>
                     <Card.Header>Albumit</Card.Header>
                     <Card.Body>
-                        <Container className='col-sm-5 mb-5'>
+                        <Container className='col-sm-5 mb-3'>
                             <FormControl
                                 placeholder='Hae albumeita...'
                                 value={search}

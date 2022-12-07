@@ -52,7 +52,7 @@ const Playlists = ({ accessToken }) => {
                 <Card>
                     <Card.Header>Soittolistat</Card.Header>
                     <Card.Body>
-                        <Container className="col-sm-5 mb-5">
+                        <Container className="col-sm-5 mb-3">
                             <FormControl
                                 type="text"
                                 placeholder="Hae soittolistoja..."

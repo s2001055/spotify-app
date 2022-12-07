@@ -16,13 +16,17 @@ const Dashboard = ({ accessToken }) => {
                 <Card>
                     <Card.Header>Tietoa sivusta</Card.Header>
                     <Card.Body>
-                        <Card.Text>Sivulla pystyy hakemaan Spotify API:n avulla artisteja, albumeita ja soittolistoja. Sivuilla pystyy myös navigoimaan artistin Spotify sivulle, sekä soittamaan artistin tekemiä albumeita. Voit halutessa hyödyntää alla olevia linkkejä tai käyttää navigointipalkkia.</Card.Text>
+                        {accessToken && (
+                            <Card.Text>Sivulla pystyy hakemaan Spotify API:n avulla artisteja, albumeita ja soittolistoja. Sivuilla pystyy myös navigoimaan artistin Spotify sivulle, sekä soittamaan artistin tekemiä albumeita. Voit halutessa hyödyntää alla olevia linkkejä tai käyttää navigointipalkkia.</Card.Text>
+                        )}
+
                         <Card.Text>Huom! Sivun käyttö edellyttää kirjautumista Spotifyn kautta. Sinulla tulee myös olla Spotify Premium käyttääksesi sivun hakutoimintoja.</Card.Text>
+                        
                         {accessToken ? (
                             <>
-                                <Link to='/artists' className='btn btn-primary btn-sm card-link card-btn'>Hae artisteja</Link>
-                                <Link to='/albums' className='btn btn-primary btn-sm card-link card-btn'>Hae albumeita</Link>
-                                <Link to='/playlists' className='btn btn-primary btn-sm card-link card-btn'>Hae soittolistoja</Link>
+                                <Link to='/artists' className='link-primary card-link card-btn'>Hae artisteja</Link>
+                                <Link to='/albums' className='link-primary card-link card-btn'>Hae albumeita</Link>
+                                <Link to='/playlists' className='link-primary btn-sm card-link card-btn'>Hae soittolistoja</Link>
                             </>
                         ) : (
                             <a href={authUrl} className='btn btn-success btn-sm card-link'>Kirjaudu sisään</a>
