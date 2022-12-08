@@ -9,6 +9,7 @@ import Dashboard from './components/Dashboard';
 import './App.css';
 
 const code = new URLSearchParams(window.location.search).get('code');
+const authUrl = 'https://accounts.spotify.com/authorize?client_id=87630b7f7f3341658174f07fba9f8f65&response_type=code&redirect_uri=http://localhost:3000&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state&show_dialog=true';
 
 const App = () => {
     const [accessToken, setAccessToken] = useState();
@@ -57,10 +58,10 @@ const App = () => {
 
     return (
         <>
-            <Header accessToken={accessToken} />
+            <Header accessToken={accessToken} authUrl={authUrl} />
 
             <Routes>
-                <Route path='/' element={<Dashboard accessToken={accessToken} />} />
+                <Route path='/' element={<Dashboard accessToken={accessToken} authUrl={authUrl} />} />
                 <Route path='/artists' element={<Artists accessToken={accessToken} />} />
                 <Route path='/albums' element={<Albums accessToken={accessToken} />} />
                 <Route path='/playlists' element={<Playlists accessToken={accessToken} />} />
