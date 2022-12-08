@@ -12,6 +12,10 @@ const Dashboard = ({ accessToken }) => {
                 {accessToken ? <title>Spotify API - Kotisivu</title> : <title>Spotify API - Kirjaudu sisään</title>}
             </Helmet>
 
+            <div className='bg-image'>
+                <div className='filter-blur'></div>
+            </div>
+
             <Container className='mt-5 col-lg-6'>
                 <Card>
                     <Card.Header>Tietoa sivusta</Card.Header>
