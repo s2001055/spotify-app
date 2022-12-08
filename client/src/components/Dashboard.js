@@ -24,9 +24,9 @@ const Dashboard = ({ accessToken }) => {
                         
                         {accessToken ? (
                             <>
-                                <Link to='/artists' className='link-primary card-link card-btn'>Hae artisteja</Link>
-                                <Link to='/albums' className='link-primary card-link card-btn'>Hae albumeita</Link>
-                                <Link to='/playlists' className='link-primary btn-sm card-link card-btn'>Hae soittolistoja</Link>
+                                <Link to='/artists' className='btn btn-sm btn-primary card-link card-btn'>Hae artisteja</Link>
+                                <Link to='/albums' className='btn btn-sm btn-primary card-link card-btn'>Hae albumeita</Link>
+                                <Link to='/playlists' className='btn btn-sm btn-primary btn-sm card-link card-btn'>Hae soittolistoja</Link>
                             </>
                         ) : (
                             <a href={authUrl} className='btn btn-success btn-sm card-link'>Kirjaudu sisään</a>
