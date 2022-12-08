@@ -9,7 +9,7 @@ const Dashboard = ({ accessToken }) => {
     return (
         <>
             <Helmet>
-                <title>Spotify API - Kotisivu</title>
+                {accessToken ? <title>Spotify API - Kotisivu</title> : <title>Spotify API - Kirjaudu sisään</title>}
             </Helmet>
 
             <Container className='mt-5 col-lg-6'>
