@@ -16,9 +16,7 @@ const Dashboard = ({ accessToken }) => {
                 <Card>
                     <Card.Header>Tietoa sivusta</Card.Header>
                     <Card.Body>
-                        {accessToken && (
-                            <Card.Text>Sivulla pystyy hakemaan Spotify API:n avulla artisteja, albumeita ja soittolistoja. Sivuilla pystyy myös navigoimaan artistin Spotify sivulle, sekä soittamaan artistin tekemiä albumeita. Voit halutessa hyödyntää alla olevia linkkejä tai käyttää navigointipalkkia.</Card.Text>
-                        )}
+                        {accessToken && <Card.Text>Sivulla pystyy hakemaan Spotify API:n avulla artisteja, albumeita ja soittolistoja. Sivuilla pystyy myös navigoimaan artistin Spotify sivulle, sekä soittamaan artistin tekemiä albumeita. Voit halutessa hyödyntää alla olevia linkkejä tai käyttää navigointipalkkia.</Card.Text>}
 
                         <Card.Text>Huom! Sivun käyttö edellyttää kirjautumista Spotifyn kautta. Sinulla tulee myös olla Spotify Premium käyttääksesi sivun hakutoimintoja.</Card.Text>
                         
