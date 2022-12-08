@@ -65,7 +65,7 @@ const Artists = ({ accessToken }) => {
                             {artists.map(artist => (
                                 <div className="col-md-3" key={artist.uri}>
                                     <Card>
-                                        <Card.Img src={artist.image} className='p-3' style={{ borderRadius: '20px', height: '320px' }} />
+                                        <Card.Img src={artist.image} className='p-3' style={{ borderRadius: '20px' }} />
 
                                         <Card.Body>
                                             <Card.Title>{artist.name}</Card.Title>

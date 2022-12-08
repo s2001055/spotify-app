@@ -100,7 +100,7 @@ const Albums = ({ accessToken }) => {
                             {albums.map((album) => (
                                 <div className='col-md-3' key={album.uri}>
                                     <Card>
-                                        <Card.Img src={album.image} className='p-3' style={{ borderRadius: '20px', height: '320px' }} />
+                                        <Card.Img src={album.image} className='p-3' style={{ borderRadius: '20px' }} />
                                         
                                         <Card.Body>
                                             <Card.Title>{album.album}</Card.Title>

@@ -64,7 +64,7 @@ const Playlists = ({ accessToken }) => {
                             {playlist.map(playlist => (
                                 <div className="col-md-3" key={playlist.uri}>
                                     <Card>
-                                        <Card.Img src={playlist.image} className="p-3" style={{ borderRadius: '20px', height: '100%', width: '100%' }} />
+                                        <Card.Img src={playlist.image} className="p-3" style={{ borderRadius: '20px' }} />
                                         <Card.Body>
                                             <Card.Title>{playlist.name}</Card.Title>
                                             <Card.Subtitle className="text-muted">{playlist.owner}</Card.Subtitle>
